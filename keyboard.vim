@@ -2,11 +2,11 @@
 nnoremap <silent> <c-l> :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 " coc.nvim
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-inoremap <silent><expr> <M-space> coc#refresh()
+" imap <C-j> <Plug>(coc-snippets-expand-jump)
+" vmap <C-j> <Plug>(coc-snippets-select)
+" let g:coc_snippet_next = '<c-j>'
+" let g:coc_snippet_prev = '<c-k>'
+" inoremap <silent><expr> <M-space> coc#refresh()
 
 " ALE
 nmap <silent> <M-p> <Plug>(ale_previous_wrap)
@@ -147,19 +147,19 @@ let g:leader_key_map.l = {
       \ 't': [':Vista!!',                      'Tag Bar'],
       \ }
 
-nmap <silent> <leader>la <Plug>(coc-codeaction)
-vmap <silent> <leader>la <Plug>(coc-codeaction-selected)
-let g:leader_key_map.l.a = 'Code Action'
+" nmap <silent> <leader>la <Plug>(coc-codeaction)
+" vmap <silent> <leader>la <Plug>(coc-codeaction-selected)
+" let g:leader_key_map.l.a = 'Code Action'
 
-nmap <silent> <leader>l= <Plug>(coc-format)
-vmap <silent> <leader>l= <Plug>(coc-format-selected)
-let g:leader_key_map.l['='] = 'Code Format'
+" nmap <silent> <leader>l= <Plug>(coc-format)
+" vmap <silent> <leader>l= <Plug>(coc-format-selected)
+" let g:leader_key_map.l['='] = 'Code Format'
 
-nmap <silent> <leader>lr <Plug>(coc-rename)
-let g:leader_key_map.l.r = 'Rename'
+" nmap <silent> <leader>lr <Plug>(coc-rename)
+" let g:leader_key_map.l.r = 'Rename'
 
-nmap <silent> <leader>lf <Plug>(coc-fix-current)
-let g:leader_key_map.l.f = 'Autofix Current'
+" nmap <silent> <leader>lf <Plug>(coc-fix-current)
+" let g:leader_key_map.l.f = 'Autofix Current'
 
 let g:leader_key_map.b = {
       \ 'name' : '+buffer' ,
@@ -182,10 +182,12 @@ let g:leader_key_map.y = {
 " g mappings {{{
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gy <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gs <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gk <cmd>lua vim.lsp.buf.hover()<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(LiveEasyAlign)
