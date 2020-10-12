@@ -13,6 +13,7 @@ runtime user/before.vim
 runtime update.vim " Auto-update
 runtime plug.vim
 " runtime! lang/*.vim
+runtime lang/go.vim
 runtime! include/*.vim
 runtime keyboard.vim
 runtime user/after.vim
